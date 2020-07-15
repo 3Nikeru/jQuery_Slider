@@ -20,8 +20,16 @@ class Slider{
          .appendTo(this._box).fadeIn(1000); // <img ... id="0" src="">
 	}
 
-	loadImages(){
-
+	loadImages(index, array){
+       setTimeout(() => {
+       	if(index > 11){
+       		return;
+       	} else {
+       		this._id = index;
+       		this.loadImage(this._id, array[index++]);
+       	    this.loadImages(index, array);
+       	}
+       }, 1000);
 	}
 
 	rotateArrows(){

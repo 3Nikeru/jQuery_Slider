@@ -11,5 +11,6 @@ $(document).ready(function(){
   const slider = new Slider('slider_id', '1000px', '500px', collection);
 
   slider.displaySlider();
+  slider.loadImages(1, collection);
 
 });
