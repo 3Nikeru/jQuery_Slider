@@ -23,25 +23,45 @@ class Slider{
 	loadImages(index, array){
        setTimeout(() => {
        	if(index > 11){
+       		$('#left_arrow').fadeIn(1000);
+       		$('#right_arrow').fadeIn(1000);
        		return;
        	} else {
-       		this._id = index;
-       		this.loadImage(this._id, array[index++]);
+       		this._current = index;
+       		this.loadImage(index, array[index++]);
+       		$('progress').val(index);
        	    this.loadImages(index, array);
        	}
        }, 1000);
 	}
 
 	rotateArrows(){
-
+       $('.arrow').hover(
+       	function(){
+          $(this).css('transform', 'rotate(360deg)');
+       	},
+       	function(){
+          $(this).css('transform', 'rotate(0deg)');
+       	}
+       );
     }
 
     slideLeft(){
-
+      $('#left_arrow').on('click', ()=>{
+      	if(this._current > 0){
+          $(`#${this._current--}`).fadeOut(1000);
+      	  $('progress').val(this._current);
+      	}
+      });
     }
 
     slideRight(){
-
+      $('#right_arrow').on('click', ()=>{
+      	if(this._current < 11){
+          $(`#${++this._current}`).fadeIn(1000);
+      	  $('progress').val(this._current + 1);
+      	}
+      });
     }
 
     activateEvents(){

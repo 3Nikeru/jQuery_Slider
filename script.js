@@ -12,5 +12,5 @@ $(document).ready(function(){
 
   slider.displaySlider();
   slider.loadImages(1, collection);
-
+  slider.activateEvents();
 });

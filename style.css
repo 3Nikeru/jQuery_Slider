@@ -20,12 +20,12 @@ body{
 	display: none;
 }
 
-.arrow{
+#left_arrow, #right_arrow{
 	font-size: 40px !important;
 	width: 36px;
 	margin: 0px 15px -12px 15px;
-	transition: transform 0.5s;
-	display: none !important;
+	transition: transform 1.0s;
+	display: none;
 }
 
 .arrow:hover{
